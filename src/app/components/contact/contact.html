@@ -1,0 +1,122 @@
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Let's discuss your next project or opportunity</p>
+    </div>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-card">
+          <h3>Let's Connect!</h3>
+          <p>
+            I'm always interested in new opportunities, challenging projects, 
+            and meeting fellow developers. Whether you have a project in mind 
+            or just want to chat about technology, feel free to reach out!
+          </p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon">📧</div>
+              <div class="method-info">
+                <h4>Email</h4>
+                <p>prathameshbhanse.work@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">📱</div>
+              <div class="method-info">
+                <h4>Phone</h4>
+                <p>+91 8169322124</p>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">📍</div>
+              <div class="method-info">
+                <h4>Location</h4>
+                <p>Navi Mumbai, Maharashtra</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/prathamesh-bhanse" class="social-link">
+              <span>💼</span> LinkedIn
+            </a>
+            <a href="https://github.com/prathamesh-ab" class="social-link">
+              <span>🐙</span> GitHub
+            </a>
+            <a href="#" class="social-link">
+              <span>🐦</span> Twitter
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <form class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <h3>Send me a message</h3>
+          
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="formData.name"
+              required
+              class="form-input"
+              placeholder="Your full name">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="formData.email"
+              required
+              class="form-input"
+              placeholder="your.email@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="formData.subject"
+              required
+              class="form-input"
+              placeholder="What's this about?">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              [(ngModel)]="formData.message"
+              required
+              rows="5"
+              class="form-input"
+              placeholder="Tell me about your project or idea..."></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn" [disabled]="!contactForm.valid">
+            <span *ngIf="!isSubmitting">Send Message 🚀</span>
+            <span *ngIf="isSubmitting">Sending... ⏳</span>
+          </button>
+          
+          <div *ngIf="submitMessage" class="submit-message" [class]="messageType">
+            {{submitMessage}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

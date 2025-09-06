@@ -1,0 +1,111 @@
+<section id="skills" class="skills">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Technical Expertise</h2>
+      <p class="section-subtitle">Crafting digital experiences with cutting-edge technologies</p>
+    </div>
+    
+    <div class="skills-content">
+      <!-- Interactive Skills Grid -->
+      <div class="skills-main">
+        <div class="skills-categories">
+          <div class="skill-category" *ngFor="let category of skillCategories; let i = index" 
+               [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 200">
+            <div class="category-header">
+              <div class="category-icon-wrapper">
+                <i [class]="category.iconClass" class="category-icon"></i>
+              </div>
+              <div class="category-info">
+                <h3>{{category.title}}</h3>
+                <p>{{category.description}}</p>
+              </div>
+            </div>
+            
+            <div class="skills-grid">
+              <div class="skill-card" *ngFor="let skill of category.skills; let j = index" 
+                   (mouseenter)="onSkillHover(skill)" 
+                   (mouseleave)="onSkillLeave()"
+                   [attr.data-aos]="'zoom-in'" 
+                   [attr.data-aos-delay]="i * 200 + j * 100">
+                <div class="skill-header">
+                  <div class="skill-icon">
+                    <i [class]="skill.iconClass" [style.color]="skill.color"></i>
+                  </div>
+                  <div class="skill-info">
+                    <h4>{{skill.name}}</h4>
+                    <span class="skill-experience">{{skill.experience}}</span>
+                  </div>
+                </div>
+                
+                <div class="skill-level-container">
+                  <div class="skill-level-bar">
+                    <div class="skill-progress" 
+                         [style.width.%]="isSkillVisible ? skill.level : 0"
+                         [style.background]="skill.gradient">
+                    </div>
+                  </div>
+                  <span class="skill-percentage">{{skill.level}}%</span>
+                </div>
+                
+                <div class="skill-description">
+                  {{skill.description}}
+                </div>
+                
+                <div class="skill-projects" *ngIf="skill.projects">
+                  <span class="projects-label">Projects:</span>
+                  <div class="project-tags">
+                    <span class="project-tag" *ngFor="let project of skill.projects">{{project}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tech Stack Visualization -->
+      <div class="tech-stack-section">
+        <div class="tech-stack-header" data-aos="fade-left">
+          <h3>Technology Arsenal</h3>
+          <p>Tools that power my development workflow</p>
+        </div>
+        
+        <!-- Floating Tech Icons -->
+        <div class="floating-tech-container">
+          <div class="floating-tech" *ngFor="let tech of floatingTech; let i = index"
+               [style.animation-delay.s]="i * 0.5"
+               [attr.data-aos]="'fade-up'" 
+               [attr.data-aos-delay]="i * 100">
+            <div class="tech-orb" (click)="selectTech(tech)" 
+                 [class.active]="selectedTech === tech"
+                 [attr.title]="tech.name">
+              <i [class]="tech.iconClass" [style.color]="tech.color"></i>
+            </div>
+            <span class="tech-label">{{tech.name}}</span>
+          </div>
+        </div>
+        
+        <!-- Selected Tech Details -->
+        <div class="tech-details-panel" *ngIf="selectedTech" data-aos="slide-up">
+          <div class="tech-details-content">
+            <div class="tech-details-header">
+              <i [class]="selectedTech.iconClass" class="tech-large-icon" [style.color]="selectedTech.color"></i>
+              <div class="tech-info">
+                <h4>{{selectedTech.name}}</h4>
+                <span class="tech-category">{{selectedTech.category}}</span>
+                <div class="tech-rating">
+                  <span *ngFor="let star of getStars(selectedTech.rating)" class="star">⭐</span>
+                </div>
+              </div>
+            </div>
+            <p class="tech-description">{{selectedTech.description}}</p>
+            <div class="tech-experience">
+              <span class="experience-label">Experience:</span>
+              <span class="experience-value">{{selectedTech.experience}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

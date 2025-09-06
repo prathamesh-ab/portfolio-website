@@ -1,0 +1,25 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="nav-container">
+    <div class="logo">
+      <a href="#home" class="logo-text">
+        <span class="logo-bracket">&lt;</span>
+        Prathamesh Bhanse
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+    </div>
+    
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li><a href="#home" (click)="closeMenu()" class="nav-link">Home</a></li>
+      <li><a href="#about" (click)="closeMenu()" class="nav-link">About</a></li>
+      <li><a href="#skills" (click)="closeMenu()" class="nav-link">Skills</a></li>
+      <li><a href="#projects" (click)="closeMenu()" class="nav-link">Projects</a></li>
+      <li><a href="#contact" (click)="closeMenu()" class="nav-link">Contact</a></li>
+    </ul>
+    
+    <div class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>

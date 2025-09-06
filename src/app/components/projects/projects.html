@@ -1,0 +1,278 @@
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Showcasing innovation through real-world solutions</p>
+    </div>
+    
+    <!-- Project Filter -->
+    <div class="project-filters" data-aos="fade-up" data-aos-delay="200">
+      <button 
+        class="filter-btn" 
+        [class.active]="activeFilter === 'all'"
+        (click)="setFilter('all')">
+        <i class="fas fa-th"></i> All Projects
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="activeFilter === 'web-app'"
+        (click)="setFilter('web-app')">
+        <i class="fas fa-globe"></i> Web Apps
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="activeFilter === 'upcoming'"
+        (click)="setFilter('upcoming')">
+        <i class="fas fa-rocket"></i> Upcoming
+      </button>
+    </div>
+    
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      <div 
+        class="project-card" 
+        *ngFor="let project of filteredProjects; let i = index" 
+        [attr.data-aos]="'fade-up'" 
+        [attr.data-aos-delay]="i * 150"
+        [class]="'project-' + project.status">
+        
+        <!-- Enhanced Project Image/Preview -->
+        <div class="project-image" [style.background]="project.gradient">
+          <!-- Animated background elements -->
+          <div class="bg-animation">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+          </div>
+          
+          <!-- Glass morphism overlay -->
+          <div class="glass-overlay"></div>
+          
+          <div class="project-overlay">
+            <div class="project-links">
+              <button 
+                class="project-link launch-link" 
+                (click)="launchApp(project)">
+                <div class="link-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <span>Launch App</span>
+                <div class="link-glow"></div>
+              </button>
+              <a 
+                [href]="project.githubUrl" 
+                class="project-link github-link" 
+                target="_blank"
+                *ngIf="project.githubUrl !== '#'">
+                <div class="link-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <span>Source Code</span>
+                <div class="link-glow"></div>
+              </a>
+              <button 
+                class="project-link details-link" 
+                (click)="openProjectModal(project)">
+                <div class="link-icon">
+                  <i class="fas fa-info-circle"></i>
+                </div>
+                <span>View Details</span>
+                <div class="link-glow"></div>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Enhanced Project Icon/Preview -->
+          <div class="project-preview">
+            <div class="project-icon-container">
+              <div class="icon-backdrop"></div>
+              <div class="project-icon">
+                <i [class]="project.iconClass"></i>
+              </div>
+              <div class="icon-ring"></div>
+              <div class="icon-pulse"></div>
+            </div>
+            
+            <!-- Enhanced Tech Stack Preview -->
+            <div class="project-tech-preview">
+              <div class="tech-stack-label">Built with</div>
+              <div class="tech-icons-container">
+                <div 
+                  class="tech-preview" 
+                  *ngFor="let tech of project.mainTech.slice(0, 3); let i = index"
+                  [style.background]="tech.gradient || tech.color"
+                  [style.animation-delay.ms]="i * 200">
+                  <i [class]="tech.icon"></i>
+                  <div class="tech-tooltip">{{tech.name}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Particles effect -->
+          <div class="particles">
+            <div class="particle" *ngFor="let p of getParticles()" 
+                 [style.left.%]="p.x" 
+                 [style.top.%]="p.y"
+                 [style.animation-delay.s]="p.delay"></div>
+          </div>
+        </div>
+        
+        <!-- Project Content -->
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">{{project.title}}</h3>
+            <div class="project-status-badge" [class]="'status-' + project.status">
+              <i [class]="getStatusIcon(project.status)"></i>
+              <span>{{getStatusText(project.status)}}</span>
+            </div>
+          </div>
+          
+          <p class="project-description">{{project.description}}</p>
+          
+          <!-- Key Features -->
+          <div class="project-features" *ngIf="project.features.length > 0">
+            <h4><i class="fas fa-star"></i> Key Features</h4>
+            <ul class="features-list">
+              <li *ngFor="let feature of project.features.slice(0, 3)">
+                <i class="fas fa-check"></i>
+                <span>{{feature}}</span>
+              </li>
+              <li *ngIf="project.features.length > 3" class="more-features">
+                <i class="fas fa-plus"></i>
+                <span>+{{project.features.length - 3}} more features</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Technology Stack -->
+          <div class="project-tech-stack">
+            <h4><i class="fas fa-cogs"></i> Tech Stack</h4>
+            <div class="tech-tags">
+              <span 
+                class="tech-tag" 
+                *ngFor="let tech of project.technologies"
+                [attr.title]="tech">
+                {{tech}}
+              </span>
+            </div>
+          </div>
+          
+          <!-- Project Footer -->
+          <div class="project-footer">
+            <div class="project-actions">
+              <button 
+                class="action-btn launch-app" 
+                (click)="launchApp(project)">
+                <i class="fas fa-external-link-alt"></i>
+                Launch App
+              </button>
+              <button 
+                class="action-btn learn-more" 
+                (click)="openProjectModal(project)">
+                <i class="fas fa-info-circle"></i>
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Coming Soon Section -->
+    <div class="coming-soon-section" data-aos="fade-up">
+      <div class="coming-soon-card">
+        <div class="coming-soon-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>More Innovations Coming Soon!</h3>
+        <p>I'm constantly pushing the boundaries of technology. Stay tuned for exciting new projects that solve real-world problems.</p>
+        <div class="progress-indicator">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <span class="progress-text">Next Project: 70% Complete</span>
+        </div>
+        <div class="newsletter-signup">
+          <div class="signup-input">
+            <input type="email" placeholder="Get notified when new projects launch">
+            <button class="signup-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Project Modal -->
+  <div class="project-modal" *ngIf="selectedProject" (click)="closeProjectModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeProjectModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i [class]="selectedProject.iconClass"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>{{selectedProject.title}}</h2>
+          <p>{{selectedProject.fullDescription}}</p>
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3><i class="fas fa-list"></i> Complete Feature List</h3>
+          <div class="features-grid">
+            <div class="feature-item" *ngFor="let feature of selectedProject.features">
+              <i class="fas fa-check-circle"></i>
+              <span>{{feature}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-section" *ngIf="selectedProject.technicalDetails">
+          <h3><i class="fas fa-code"></i> Technical Implementation</h3>
+          <div class="technical-details">
+            <div class="detail-item" *ngFor="let detail of selectedProject.technicalDetails">
+              <h4>{{detail.title}}</h4>
+              <p>{{detail.description}}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-section" *ngIf="selectedProject.challenges">
+          <h3><i class="fas fa-mountain"></i> Challenges & Solutions</h3>
+          <div class="challenges-list">
+            <div class="challenge-item" *ngFor="let challenge of selectedProject.challenges">
+              <div class="challenge-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h4>{{challenge.challenge}}</h4>
+              </div>
+              <div class="solution">
+                <i class="fas fa-lightbulb"></i>
+                <p>{{challenge.solution}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-actions">
+          <button class="modal-action-btn launch-btn" (click)="launchApp(selectedProject)">
+            <i class="fas fa-rocket"></i>
+            Launch Application
+          </button>
+          <a [href]="selectedProject.githubUrl" 
+             target="_blank" 
+             class="modal-action-btn github-btn"
+             *ngIf="selectedProject.githubUrl !== '#'">
+            <i class="fab fa-github"></i>
+            View Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

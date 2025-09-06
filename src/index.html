@@ -2,12 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>PortfolioWebsite</title>
+  <title>Prathamesh Bhanse - Full Stack Developer</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Full Stack Developer specializing in Angular, ASP.NET Core, and modern web technologies. Creating innovative solutions for businesses.">
+  <meta name="keywords" content="Full Stack Developer, Angular, ASP.NET Core, Web Development, Software Engineer, TypeScript, C#">
+  <meta name="author" content="Your Name">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourwebsite.com/">
+  <meta property="og:title" content="Your Name - Full Stack Developer">
+  <meta property="og:description" content="Full Stack Developer specializing in Angular, ASP.NET Core, and modern web technologies.">
+  <meta property="og:image" content="https://yourwebsite.com/assets/images/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourwebsite.com/">
+  <meta property="twitter:title" content="Your Name - Full Stack Developer">
+  <meta property="twitter:description" content="Full Stack Developer specializing in Angular, ASP.NET Core, and modern web technologies.">
+  <meta property="twitter:image" content="https://yourwebsite.com/assets/images/og-image.jpg">
+  
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0f0f23">
+  <meta name="msapplication-navbutton-color" content="#0f0f23">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
   <app-root></app-root>
+  
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-out-cubic'
+    });
+  </script>
+  
+  <!-- Smooth scrolling polyfill for older browsers -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = targetElement.offsetTop - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

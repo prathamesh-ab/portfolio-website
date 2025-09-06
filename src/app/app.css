@@ -1,0 +1,38 @@
+:root {
+  --primary-bg: #0f0f23;
+  --secondary-bg: #1a1a2e;
+  --tertiary-bg: #16213e;
+  --accent-color: #00f5ff;
+  --accent-secondary: #7209b7;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8d6;
+  --text-muted: #8892b0;
+  --card-bg: rgba(26, 26, 46, 0.8);
+  --border-color: rgba(0, 245, 255, 0.2);
+  --hover-bg: rgba(0, 245, 255, 0.1);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--primary-bg);
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+}
