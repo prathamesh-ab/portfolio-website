@@ -17,7 +17,9 @@
           
           <div class="contact-methods">
             <div class="contact-method">
-              <div class="method-icon">📧</div>
+              <div class="method-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
               <div class="method-info">
                 <h4>Email</h4>
                 <p>prathameshbhanse.work@gmail.com</p>
@@ -25,7 +27,9 @@
             </div>
             
             <div class="contact-method">
-              <div class="method-icon">📱</div>
+              <div class="method-icon">
+                <i class="fas fa-phone"></i>
+              </div>
               <div class="method-info">
                 <h4>Phone</h4>
                 <p>+91 8169322124</p>
@@ -33,7 +37,9 @@
             </div>
             
             <div class="contact-method">
-              <div class="method-icon">📍</div>
+              <div class="method-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
               <div class="method-info">
                 <h4>Location</h4>
                 <p>Navi Mumbai, Maharashtra</p>
@@ -42,14 +48,17 @@
           </div>
           
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/prathamesh-bhanse" class="social-link">
-              <span>💼</span> LinkedIn
+            <a href="https://www.linkedin.com/in/prathamesh-bhanse" class="social-link" title="Connect on LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+              <span>LinkedIn</span>
             </a>
-            <a href="https://github.com/prathamesh-ab" class="social-link">
-              <span>🐙</span> GitHub
+            <a href="https://github.com/prathamesh-ab" class="social-link" title="View GitHub Profile">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
             </a>
-            <a href="#" class="social-link">
-              <span>🐦</span> Twitter
+            <a href="#" class="social-link" title="Follow on Twitter/X">
+               <i class="fab fa-twitter"></i>
+              <span>Twitter</span>
             </a>
           </div>
         </div>
@@ -108,8 +117,14 @@
           </div>
           
           <button type="submit" class="submit-btn" [disabled]="!contactForm.valid">
-            <span *ngIf="!isSubmitting">Send Message 🚀</span>
-            <span *ngIf="isSubmitting">Sending... ⏳</span>
+            <span *ngIf="!isSubmitting">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </span>
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i>
+              Sending...
+            </span>
           </button>
           
           <div *ngIf="submitMessage" class="submit-message" [class]="messageType">
