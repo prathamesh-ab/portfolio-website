@@ -22,7 +22,7 @@ export class Projects implements OnInit {
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       category: 'web-app',
       status: 'in-progress',
-      liveUrl: '#',
+      liveUrl: 'https://mailcraft.prathameshbhanse.live/',
       githubUrl: '#',
       features: [
         'Smart email composition with AI assistance',
