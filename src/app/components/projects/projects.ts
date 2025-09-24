@@ -12,7 +12,7 @@ export class Projects implements OnInit {
   activeFilter = 'all';
   selectedProject: any = null;
   filteredProjects: any[] = [];
-
+  
   projects = [
     {
       title: 'Email Generation App',

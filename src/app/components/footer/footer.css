@@ -181,3 +181,60 @@
     margin-bottom: 1.5rem;
   }
 }
+
+/* Add these responsive improvements to the existing footer.css */
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+
+  .footer-content {
+    gap: 1.5rem;
+  }
+
+  .footer-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-logo h3 {
+    font-size: 1.3rem;
+  }
+  
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+  
+  .social-icon {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 1rem;
+  }
+  
+  .footer-email {
+    font-size: 0.85rem;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer-logo h3 {
+    font-size: 1.2rem;
+  }
+  
+  .footer-social {
+    gap: 0.75rem;
+  }
+  
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 0.9rem;
+  }
+}

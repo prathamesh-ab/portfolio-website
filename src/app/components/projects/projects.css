@@ -1314,3 +1314,292 @@
     box-shadow: 0 0 0 0 rgba(0, 245, 255, 0);
   }
 }
+
+
+
+/* Add these responsive improvements to the existing projects.css */
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-image {
+    height: 250px;
+  }
+  
+  .coming-soon-card {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 80px 0;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    margin: 0;
+    max-width: none;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .project-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .action-btn.launch-app,
+  .action-btn.learn-more {
+    max-width: none;
+    width: 100%;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .coming-soon-card {
+    padding: 2rem;
+    margin: 0;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+    max-height: 85vh;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .modal-action-btn {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .project-image {
+    height: 220px;
+  }
+  
+  .project-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .project-icon i {
+    font-size: 2.2rem;
+  }
+  
+  .tech-preview {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .icon-ring {
+    width: 90px;
+    height: 90px;
+  }
+
+  .icon-pulse {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .project-filters {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .project-filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    width: 200px;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+  
+  .project-status-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .signup-input {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .signup-input input,
+  .signup-btn {
+    width: 100%;
+  }
+  
+  .coming-soon-card {
+    padding: 1.5rem;
+  }
+  
+  .coming-soon-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .coming-soon-icon i {
+    font-size: 2.5rem;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+  
+  .project-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .project-icon i {
+    font-size: 2rem;
+  }
+  
+  .tech-preview {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .shape-1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shape-2 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .shape-3 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .tech-icons-container {
+    gap: 0.5rem;
+  }
+  
+  .project-features h4,
+  .project-tech-stack h4 {
+    font-size: 0.95rem;
+  }
+  
+  .features-list li {
+    font-size: 0.85rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .filter-btn {
+    width: 180px;
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+  
+  .project-content {
+    padding: 0.75rem;
+  }
+  
+  .coming-soon-card {
+    padding: 1rem;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .project-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .project-icon i {
+    font-size: 1.8rem;
+  }
+  
+  .modal-content {
+    width: 98%;
+    margin: 0.5rem;
+  }
+  
+  .modal-header,
+  .modal-body {
+    padding: 1rem;
+  }
+}

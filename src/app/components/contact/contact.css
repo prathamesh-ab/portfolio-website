@@ -57,6 +57,7 @@
   align-items: center;
   justify-content: center;
   color: var(--accent-color);
+  flex-shrink: 0;
 }
 
 .method-info h4 {
@@ -127,17 +128,17 @@
 
 /* Specific hover colors for social links */
 .social-link:nth-child(1):hover {
-  background: rgba(0, 119, 181, 0.2); /* LinkedIn */
+  background: rgba(0, 119, 181, 0.2);
   border-color: #0077b5;
 }
 
 .social-link:nth-child(2):hover {
-  background: rgba(51, 51, 51, 0.2); /* GitHub */
+  background: rgba(51, 51, 51, 0.2);
   border-color: #333;
 }
 
 .social-link:nth-child(3):hover {
-  background: rgba(29, 161, 242, 0.2); /* Twitter */
+  background: rgba(29, 161, 242, 0.2);
   border-color: #1da1f2;
 }
 
@@ -176,6 +177,7 @@
   color: var(--text-primary);
   font-size: 1rem;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .form-input::placeholder {
@@ -236,7 +238,23 @@
   color: var(--error-color);
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-content {
+    gap: 3rem;
+  }
+  
+  .contact-card,
+  .contact-form {
+    padding: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .contact {
+    padding: 80px 0;
+  }
+  
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -249,5 +267,96 @@
 
   .social-links {
     justify-content: center;
+  }
+  
+  .contact-method {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .method-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .contact-card,
+  .contact-form {
+    padding: 1.5rem;
+    margin: 0;
+  }
+  
+  .contact-card h3,
+  .form h3 {
+    font-size: 1.3rem;
+  }
+  
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .social-link {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  .contact-method {
+    padding: 0.75rem;
+  }
+  
+  .method-info h4 {
+    font-size: 0.95rem;
+  }
+  
+  .method-info p {
+    font-size: 0.85rem;
+  }
+  
+  .form-input {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+  
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .contact-card,
+  .contact-form {
+    padding: 1rem;
+  }
+  
+  .contact-card h3,
+  .form h3 {
+    font-size: 1.2rem;
+  }
+  
+  .method-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .social-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
   }
 }

@@ -11,7 +11,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class Skills implements OnInit {
   selectedTech: any = null;
   isSkillVisible = false;
-
+  
   skillCategories = [
     {
       title: 'Frontend Development',

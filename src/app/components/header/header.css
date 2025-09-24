@@ -123,3 +123,35 @@
     display: flex;
   }
 }
+
+/* Add these responsive improvements to the existing header.css */
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.75rem 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.3rem;
+  }
+  
+  .nav-menu {
+    top: 60px;
+    padding: 1.5rem 0;
+  }
+  
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu {
+    top: 55px;
+  }
+}
